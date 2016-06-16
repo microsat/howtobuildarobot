@@ -1,0 +1,37 @@
+== How to Build a Robot - Testing Hardware
+
+Part three of a series of articles on building a robot that can follow lines or walls and avoid obstacles!
+
+=== Overview
+
+This is part 3 of a Howto of articles on my experiences building a robot that can do various things. I thought it would be neat to create a robot that was easy to put together and was also affordable. I made up the following requirements for my robot:
+
+. Many kits are expensive, so it must be relatively inexpensive.
+. It must be easily put together without special equipment.
+. It must be easily programmable without a complicated IDE or programmer.
+. It must be powerful enough for expandability.
+. It should run off a simple power source.
+. It should be able to follow a line or a wall, and avoid obstacles.
+
+In this article I'll talk about how assembled the robot and wrote a robot library to test the various circuitry.
+
+=== Gathering the Components
+
+I ordered all of the components, which all came in a reasonably fast amount of time.
+
+picture of stuff
+
+
+=== Assembling the Mechanical Components
+
+=== Soldering the Components
+
+
+=== Testing the Motors
+
+
+=== Testing the Sensors
+
+=== Conclusion
+
+In this article I showed the process of assembling a robot and testing the components individually. It's important to do this when you first get boards, because you never know what mistakes might have been made in the design or the manufacture of the PCB. If you jump right in to the application design, you might miss something that causes problems down the road. In the next article I'll talk about how to turn the robot into a line follower by righting a simple algorithm to stay centered on a black line.
