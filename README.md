@@ -1,4 +1,4 @@
-# howtobuildarobot
+# how to build a robot
  building a robot that can do various things.
  
 This is howto series of articles.
