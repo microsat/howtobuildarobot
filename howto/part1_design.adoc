@@ -1,0 +1,57 @@
+== How to Build a Robot - Design and Schematic
+
+=== Overview
+This is part 1 of a HowTo of articles on my experiences building a robot that can do various things. I thought it would be neat to create a robot that was easy to put together and was also affordable. I made up the following requirements for my robot:
+
+. Many kits are expensive, so it must be relatively inexpensive.
+. It must be easily put together without special equipment.
+. It must be easily programmable without a complicated IDE or programmer.
+. It must be powerful enough for expandability.
+. It should run off a simple power source.
+. It should be able to follow a line or a wall, and avoid obstacles.
+
+In this article I'll talk about how I decided to meet these requirements.
+
+=== Choosing the components
+
+The first step in any project is figuring out what pieces are required. A robot needs a few key things to be useful: a way to move, think, and interact with its surroundings. To keep costs down, I need to get by with two wheels. This means to steer I need two separate motors that can be operated independently. I also need a ball caster that the robot can lean on to glide along. This has the unfortunate downside that the robot really can't go on any surfaces other than smooth floors. I want the brains to be some sort of well-known microcontroller platform. This way it won' need a programmer or guide to use the development tools. The robot needs to have sensors that allow it to be aware of lines, walls, and obstacles. I also want to minimize the amount of different places that I buy things to keep shipping costs low. 
+
+=== Mechanical: Motors, Gears, Wheels
+
+I found a couple websites that offer various hobby motors and robot parts, but I settled on http://www.pololu.com/[Pololu] because their prices were decent and they had everything I needed. The products from Tamiya looked pretty good. The https://www.pololu.com/product/114[70168 Double Gearbox Kit] comes with gears, motors, and shafts, which greatly simplifies the mechanical. It's also very cheap! The motors run on 3V normally, but could run higher at the expense of reduced operational life. Several gear ratios are supported, so I can fine tune the speed of the robot when I get it. I decided on the cheapest wheels that would fit the shaft of this kit, the https://www.pololu.com/product/65[Tamiya 70101 Truck Tire Set]. This set comes with four wheels and I only need two, but it's cheap and spares never hurt! The front wheel is just a ball caster or plastic screw so that the robot can slide along the floor.
+
+=== Brains: Microcontroller
+
+There are several different microcontroller platforms that are fairly popular. The obvious choice is some sort of Arduino based on polarity. Other options are https://www.pjrc.com/teensy/[Teensy], http://www.ti.com/ww/en/launchpad/launchpad.html?DCMP=mcu-launchpad&HQS=launchpad[Launchpad], and http://www.adafruit.com/category/105?gclid=CImIsaLP4MgCFQ5rfgodnOQO0g[Raspberry Pi]. The Pi is way too big and power hungry and the Launchpad is too big. I've used Teensy in the past and had good success. The Teensy is slightly more expensive than the Arduino Mini but offers a much more powerful platform. Then there this https://www.pololu.com/product/3103[A-Star 32U4 Mini LV], is a programmable module based on the ATmega32U4 from Atmel. Unlike competing products, it has an onboard switching step-up/step-down regulator that allows it to be powered efficiently from a **2.7 V to 11.8 V** supply. This compact 1.9″ × 0.7″ board breaks out all 26 of the microcontroller’s I/O pins (of which 7 can be used as PWM outputs and 12 as analog inputs), and loading programs is made easier by a Micro-USB interface and a preloaded Arduino-compatible bootloader.
+
+=== Interaction: Sensors
+
+Different sensors are needed for following lines and following walls. The line following sensors are usually reflectometers that vary a voltage depending on how much light is reflected from the ground. This is done using an LED and photodiode or light detector. The wall and obstacle detectors are usually some sort of distance sensor. Both of these types were available in a convenient DIP breakout form from the same store as the motors which allows me to save on shipping __and__ be easily soldered! For the line sensor, I found one that has https://www.pololu.com/product/2457[3 sensors] which allows the line to be centered on the robot at all times. For the distance sensor, I decided on the high brightness https://www.pololu.com/product/2460[IR sensor], since I'm operating on a lower voltage than what is expected.
+
+=== Power: Motor Driver, Battery
+
+The motor driver needs to be able to drive the 3V motors above. I also wanted it to be scalable in case I wanted to upgrade the motors in the future. I found one from the same store as above https://www.pololu.com/product/2135/specs[here]. It can operate on 0-11V and supply plenty of current for any motor I'd want to add in the future. For the battery, I'd prefer that the robot runs on almost anything. The input to the A-Star 32U4 Mini LV accepts **2.7 V to 11.8 V** , which means a lithium cell could be used. Lithium's require a battery charger though, and I don't want to add that to the expenses. Using two normal AA batteries offers quite a bit of power without this need. 
+
+=== Complete Bill of Materials
+
+==== Necessary Materials
+
+|====
+| Part Type | Part Number | Cost
+| Microcontroller | https://www.pololu.com/product/3103[A-Star 32U4 Mini LV] | 19.50
+| Motor | https://www.pololu.com/product/114[Tamiya 70168] | 9.25
+| Motor Driver | https://www.pololu.com/product/2135[DRV8835] | 4.49
+| Ball Caster | https://www.pololu.com/product/66[Tamiya 70144] | 5.99
+| Reflector Sensor | https://www.pololu.com/product/2457[QTR-3RC] | 4.95
+| Tires | https://www.pololu.com/product/65[Tamiya 70101] | 4.10
+| 3x Distance sensor | https://www.pololu.com/product/2460[Pololu 38kHz] |3x(5.95)
+| Battery Case | https://www.pololu.com/product/1150[2-AA Battery Holder] | 0.79
+|   | Total w/o shipping: | $67.22
+|====
+
+=== Schematic
+
+
+=== Conclusion
+
+In this HowTo article I outlined the requirements for the robot and my design choices to meet those requirements. These choices led to a schematic and bill of materials (BOM) to add up the costs for the project.
