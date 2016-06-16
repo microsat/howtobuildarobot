@@ -26,9 +26,7 @@ picture of stuff
 
 === Soldering the Components
 
-
 === Testing the Motors
-
 
 === Testing the Sensors
 
