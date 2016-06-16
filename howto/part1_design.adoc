@@ -1,5 +1,7 @@
 == How to Build a Robot - Design and Schematic
 
+Start building a robot that can follow lines or walls and avoid obstacles!
+
 === Overview
 This is part 1 of a HowTo of articles on my experiences building a robot that can do various things. I thought it would be neat to create a robot that was easy to put together and was also affordable. I made up the following requirements for my robot:
 

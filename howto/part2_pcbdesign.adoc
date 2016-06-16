@@ -1,0 +1,53 @@
+== How to Build a Robot - PCB Design
+
+Start building a robot that can follow lines or walls and avoid obstacles!
+
+=== Overview
+This is part 2 of a HowTo of articles on my experiences building a robot that can do various things.  I thought it would be neat to create a robot that was easy to put together and was also affordable. I made up the following requirements for my robot:
+
+. Many kits are expensive, so it must be relatively inexpensive.
+. It must be easily put together without special equipment.
+. It must be easily programmable without a complicated IDE or programmer.
+. It must be powerful enough for expandability.
+. It should run off a simple power source.
+. It should be able to follow a line or a wall, and avoid obstacles.
+
+In this article I'll talk about how I converted the design and schematic into a printed-circuit board that can be ordered online!
+
+=== Choosing a Board House
+
+There are so many board houses these days that it can actually be hard to choose one. I went with the lowest cost one I could find since my objective was an affordable robot and I don't have any complicated board requirements. Whenever you find a board house you'll want to make sure to look at their specifications for boards. Some key things to look for are:
+
+*   How many layers do they support?
+*   Do they offer silkscreen for free on both layers?
+*   What is the minimum via size?
+*   What are the drill hole ranges?
+*   What are the minimum trace thicknesses and spacing? This specification is one of the more critical ones for small/dense boards because if the board house can't handle close traces it will be difficult to route the board.
+*   It makes it way easier if the board house has a DRC (design-rule check) file you can load into your layout program to make sure you adhere to their specifications. Fortunately, Elecrow made one of these files for 2-layer boards.
+
+
+=== Placing Components
+
+It's important to spend a lot of time on component placement to meet mechanical requirements and to group circuits together. This board has a lot of break-out boards tied together so grouping circuits isn't as crucial. 
+
+
+=== Routing Key Nets
+
+The auto-router doesn't do a good job at routing power traces. I have routed the important connections manually below, such as power, motor, and motor control. The trace width for power should be as large as possible to limit the voltage drop. If possible, it's best to route all of the traces manually so you know what's happening with the signals. For signals such as low-speed digital connections and other non-critical nets the auto-router can be a great time saver.
+
+=== Auto-routing the Rest
+
+
+=== Clean-up and Ground Pour
+
+
+
+==== Final DRC and ERC checks
+
+Run the DRC and ERC checkers one last time to make sure there aren't any board issues that will be discovered by the board house. It's also good practice to double check key connections and orientations, especially off-board connections. It's really common to get them backwards.
+
+=== Conclusion
+
+In this Howto I showed the process of taking a schematic and creating a PCB that can be ordered from online manufacturers. Boards are so cheap to make these days that unless a project is very simple, it makes sense to order the PCB. Your project will be much cleaner and take less time to wire together! In the next article I'll put the robot together and verify the electrical connections!
+
+ 
